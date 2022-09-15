@@ -13,6 +13,8 @@ import koaStatic from 'koa-static';
 import path from 'path';
 import { existsSync } from 'fs';
 import { RegisterRoutes } from "../build/routes";
+import { AppDataSource } from "./data-source"
+import { User } from "./infra/entity/User"
 
 export const app = new Koa();
 const router = new Router();
@@ -63,4 +65,7 @@ app.use(
 		},
 	}),
 );
+
+AppDataSource.initialize().catch(error => console.log(error))
+
 
