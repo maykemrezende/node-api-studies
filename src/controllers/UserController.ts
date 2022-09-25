@@ -11,9 +11,9 @@ import {
     SuccessResponse,
   } from "tsoa";
 
-@Route("api/users")
+@Route("api")
 export class UserController extends Controller{
-    @Get()
+    @Get("users")
     public async getAll() : Promise<UserDto[]>{
         let users: UserDto[] = []
 
@@ -25,6 +25,11 @@ export class UserController extends Controller{
         users.push(user)
 
         return users
+    }
+
+    @Get("health")
+    public async GetHealth() : Promise<number>{
+        return 1;
     }
 
 }

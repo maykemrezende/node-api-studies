@@ -15,6 +15,8 @@ import { existsSync } from 'fs';
 import { RegisterRoutes } from "../build/routes";
 import { AppDataSource } from "./data-source"
 import { User } from "./infra/entity/User"
+import dotenv from 'dotenv'
+dotenv.config()
 
 export const app = new Koa();
 const router = new Router();
@@ -39,8 +41,7 @@ app.use(koaStatic(SWAGGER_DIR_TO_SERVE));
 
 const SWAGGER_UI_ROUTE = '/swagger';
 
-const listenToAllHostNames = '0.0.0.0';
-const specificHostname = "localhost"; //envVars.get('MY_HOST_URL');
+const specificHostname = process.env.APP_HOST;
 const PORT_THAT_WILL_WORK_WITH_SWAGGER_UI = 3000;
 if (process.env.PORT && parseInt(process.env.PORT) !== PORT_THAT_WILL_WORK_WITH_SWAGGER_UI) {
 	throw new Error(`The only port that will work with the swagger UI is ${PORT_THAT_WILL_WORK_WITH_SWAGGER_UI}`);
