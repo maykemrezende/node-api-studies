@@ -44,13 +44,11 @@ Pra buildar pra produção, use: `yarn build`. Depois rode para executar o build
     - `yarn dev-server:debug` - roda o servidor local a partir da linha de comando com log adicional
 7. `yarn lint` - roda o verificador de código typescript. MUITO IMPORTANTE SEMPRE RODAR ESSE SCRIPT!
 8. `yarn available-routes` - verifica quais rotas koa deixa disponíveis
-9. __Docker__
-    - `yarn docker:build`
-    - `yarn docker:run`
 10. __Database__
-    - `yarn db:migrate:generate <nome_migration>` - rode __SEMPRE__ que houver mudança em tabelas.
-    - `yarn db:migrate:run` - roda todas as migrations para aplicar as mudanças no banco de dados
-    - `yarn db:migrate:revert` - reverte a migration mais recente
+    - `yarn add-migration ./src/infra/migrations/<migration_name> -d ./build/src/data-source.js` - rode __SEMPRE__ que houver mudança em tabelas.
+    - `yarn build` - antes de rodar update-database
+    - `yarn update-database -d ./build/src/data-source.js` - roda todas as migrations para aplicar as mudanças no banco de dados
+    - `yarn revert-database -d ./build/src/data-source.js` - reverte a migration mais recente
 
 ### Preparando a imagem docker (Node API)
 

@@ -6,9 +6,9 @@ services:
     container_name: postgresdb
     environment:
       LANG: "pt_BR.utf8"
-      POSTGRES_DB: db-name
-      POSTGRES_USER: db-user
-      POSTGRES_PASSWORD: db-password
+      POSTGRES_DB: db_name
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_password
     ports:
       - 5432:5432
     restart: always
