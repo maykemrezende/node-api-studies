@@ -15,9 +15,9 @@ import {
 export class UserController extends Controller{
     @Get("users")
     public async getAll() : Promise<UserDto[]>{
-        let users: UserDto[] = []
+        const users: UserDto[] = []
 
-        let user: UserDto = {
+        const user: UserDto = {
             email: "teste",
             id: 1
         }

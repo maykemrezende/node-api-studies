@@ -67,6 +67,6 @@ app.use(
 	}),
 );
 
-AppDataSource.initialize().catch(error => console.log(error))
+AppDataSource.initialize().then().catch()
 
 

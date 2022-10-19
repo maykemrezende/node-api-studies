@@ -1,0 +1,77 @@
+{
+	"extends": [
+		"tslint:recommended",
+		"tslint-config-prettier"
+    ],
+    "jsRules":{
+        "object-literal-sort-keys": false
+    },
+	"rules": {
+        "await-promise": true,
+        "adjacent-overload-signatures": true,
+        "curly": false,
+        "ban": [
+            true,
+            {"name": ["eval"], "message": "eval é um risco de segurança."},
+            {"name": ["moment"], "message": "Use uma biblioteca de datas que seja imutável, como JsJoda ou Luxon"},
+            {"name": ["*","setSessionAttributes"], "message": "Perigoso pelo risco de condição de corrida e não ser type safe. Use makeTypeSafeSessionAttribute para criar getter e setters que sejam type-safe."},
+            {"name": ["test","each"], "message": "Isso quebra o vscode-jest. Use 'describe.each' com um 'it' dentro do loop. Veja mais: https://github.com/jest-community/vscode-jest/issues/427"},
+            {"name": ["it","each"], "message": "Isso quebra o vscode-jest. Use 'describe.each' com um 'it' dentro do loop. Veja mais: https://github.com/jest-community/vscode-jest/issues/427"}
+        ],
+        "interface-name": false,
+        "interface-over-type-literal": false,
+        "no-floating-promises": true,
+        "no-unused-expression": false,
+        "max-classes-per-file": false,
+        "no-any": {
+            "severity": "error"
+        },
+        "no-unsafe-any": {
+            "severity": "error"
+        },
+        "member-access": true,
+        "member-ordering": false,
+        "no-empty-interface": true,
+        "no-internal-module": true,
+        "no-magic-numbers": {
+            "options": [1, -1, 0, 100],
+            "severity": "warning"
+        },
+        "no-empty": false,
+        "no-debugger": {
+            "severity": "error"
+        },
+        "no-namespace": false,
+        "no-non-null-assertion": true,
+        "no-reference": true,
+        "no-unnecessary-type-assertion": true,
+        "no-var-requires": true,
+        "one-variable-per-declaration": false,
+        "only-arrow-functions": false,
+        "object-literal-shorthand": false,
+		"object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "promise-function-async": true,
+        "radix": false,
+        "no-bitwise": true,
+        "no-conditional-assignment": true,
+        "no-console": true,
+        "no-construct": true,
+        "no-dynamic-delete": true,
+        "no-var-keyword": true,
+        "no-invalid-template-strings": true,
+        "no-shadowed-variable": true,
+        "no-string-throw": true,
+        "no-switch-case-fall-through": true,
+        "no-unsafe-finally": true
+	},
+    "defaultSeverity": "error",
+    "linterOptions": {
+        "exclude": [
+            "node_modules/**/*",
+            "./**/*_spec*",
+            "./**/migration/**/*",
+            "./**/migrations/**/*"
+        ]
+    }
+}
